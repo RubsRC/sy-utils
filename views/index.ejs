@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Hello world!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/stylesheet/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Sy-Utils</h2>
+        <p>Vamos a acelerar el desarrollo de nuevos módulos!</p>
+        <div class="row">
+          <div class="col-md-6">
+            <form method="POST" action="/test" class="">
+              <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" name="nombre" value="" placeholder="Nombre.." class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="name">Apellido:</label>
+                <input type="text" name="apellido" value="" placeholder="Apellido.." class="form-control">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Continuar</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <div class="designed-by pull-right">
+              <img src="assets/images/logo_ontech.png" class="img-responsive">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>
+      $.ajax({
+        url: '/test',
+        type: 'POST',
+        data: JSON.stringify({ nombre: 'Rubs', apellido: 'Robles'}),
+        dataType: 'json',
+        contentType: 'application/json'
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "sy-utils",
+  "version": "1.0.0",
+  "description": "SyOn Dev Utils",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RubsRC/sy-utils.git"
+  },
+  "author": "RubsRC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RubsRC/sy-utils/issues"
+  },
+  "homepage": "https://github.com/RubsRC/sy-utils#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
+  }
+}
