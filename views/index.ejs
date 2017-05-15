@@ -14,22 +14,8 @@
         <p>Vamos a acelerar el desarrollo de nuevos módulos!</p>
         <div class="row">
           <div class="col-md-6">
-            <% if (errMessage) { %>
-              <div class="alert alert-danger"><%= errMessage %></div>    
-            <% } %>
-            <form method="POST" action="/dashboard" class="">
-              <div class="form-group">
-                <label for="name">Usuario:</label>
-                <input type="text" name="user" id="user" value="" placeholder="Dobby" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Contraseña:</label>
-                <input type="password" name="password" id="password" value="" placeholder="" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Continuar</button>
-              </div>
-            </form>
+            <a href="/login" class="btn btn-primary">Iniciar sesión</a>
+            <a href="/signup" class="btn btn-primary">Registrarse</a>
           </div>
           <div class="col-md-6">
             <div class="designed-by pull-right">
@@ -39,15 +25,5 @@
         </div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script>
-      // $.ajax({
-      //   url: '/dashboard/test',
-      //   type: 'POST',
-      //   data: JSON.stringify({ nombre: 'Rubs', apellido: 'Robles'}),
-      //   dataType: 'json',
-      //   contentType: 'application/json'
-      // });
-    </script>
   </body>
 </html>

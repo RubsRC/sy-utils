@@ -9,8 +9,15 @@
   </head>
   <body>
     <div class="container">
-      <div class="well">
-        <h3>Recibímos el POST.</h3>
+      <div class="col-sm-6">
+        <div class="well">
+          <h3>Bienvedido!</h3>
+          <p>
+              <strong>id</strong>: <%= user.id %><br>
+              <strong>username</strong>: <%= user.username %><br>
+              <strong>password</strong>: <%= user.password %>
+            </p>
+        </div>
       </div>
     </div>
   </body>
