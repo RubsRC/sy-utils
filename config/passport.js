@@ -63,7 +63,6 @@ module.exports = function (passport) {
   },
     // callback with email and password from the form
     function (req, username, password, done) {
-      console.log('----- buscando usuario....');
       connection.query('SELECT * FROM cat_usuarios WHERE username = "' + username + '";', function (err, rows) {
         if (err) {
           return done(err);

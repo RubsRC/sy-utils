@@ -1,15 +1,16 @@
 'use strict';
 
+var phpFn = require('./phpFn');
+
 module.exports = function (app, passport) {
 
   /* Handle home page GET */
-  app.get('/', function (req, res) {
-    // Display the Login page with any flash message, if any
+  app.get('/', loggedToDashboard, function (req, res) {
     res.render('index');
   });
 
   /* Handle login page GET. */
-  app.get('/login', function (req, res) {
+  app.get('/login', loggedToDashboard, function (req, res) {
     // Display the Login page with any flash message, if any
     res.render('login', { message: req.flash('loginMessage') });
   });
@@ -21,7 +22,6 @@ module.exports = function (app, passport) {
     failureFlash: true
   }),
     function (req, res) {
-      console.log('hello');
       if (req.body.remember) {
         req.session.cookie.maxAge = 1000 * 60 * 3;
       } else {
@@ -54,13 +54,25 @@ module.exports = function (app, passport) {
     res.redirect('/');
   });
 
+  app.post('/php/class', function(req, res) {
+    res.json(phpFn.fieldToPhpClass(req.body));
+  });
 };
 
 // route middleware to make sure
 function isLoggedIn(req, res, next) {
   // if user is authenticated in the session, carry on
-  if (req.isAuthenticated())
+  if (req.isAuthenticated()) {
     return next();
+  }
   // if they aren't redirect them to the home page
   res.redirect('/');
+}
+
+// route middleware to redirect loged user
+function loggedToDashboard(req, res, next) {
+  if (req.isAuthenticated()) {
+    res.redirect(301, '/dashboard');
+  }
+  return next();
 }
