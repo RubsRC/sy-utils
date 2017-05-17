@@ -1,78 +1,146 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <title>Dashboard</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheet/custom.css">
-  </head>
-  <body>
-    <nav class="navbar navbar-primary">
-      <div class="container-fluid">
-        <div class="navbar-header"> <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5"
-            aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>      <a href="#" class="navbar-brand">Sy Utils</a> </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
-          <p class="navbar-text navbar-right">
-            Hola, <a href="#" class="navbar-link"><%= user.username %></a>
-            | <a href="/logout">Salir</a>
+
+<head>
+  <title>Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/stylesheet/custom.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-primary">
+    <div class="container-fluid">
+      <div class="navbar-header"> <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5"
+          aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>        <a href="#" class="navbar-brand">Sy Utils</a> </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+        <p class="navbar-text navbar-right">
+          Hola,
+          <a href="#" class="navbar-link">
+            <%= user.username %>
+          </a>
+          | <a href="/logout">Salir</a>
+        </p>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="well">
+          <h3>Bienvedido!</h3>
+          <p>
+            <strong>id</strong>:
+            <%= user.id %><br>
+              <strong>username</strong>:
+              <%= user.username %><br>
+                <strong>password</strong>:
+                <%= user.password %>
           </p>
         </div>
       </div>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="well">
-            <h3>Bienvedido!</h3>
-            <p>
-                <strong>id</strong>: <%= user.id %><br>
-                <strong>username</strong>: <%= user.username %><br>
-                <strong>password</strong>: <%= user.password %>
-              </p>
+      <div class="col-md-12">
+        <h3>Generar variables para una clase PHP</h3>
+        <form id="fieldList">
+          <div class="form-group">
+            <label for="fields">Ingresa los campos, separados por coma.</label>
+            <textarea rows="5" id="myFields" name="myFields" class="form-control">hola, adios, bienvenido, hoy_toca, let_go_now</textarea>
           </div>
+          <div class="form-group">
+            <p>Opciones:</p>
+            <label class="the-options">
+                <input type="checkbox" name="camelCase" value="camelCase" checked="checked">
+                camelCase
+              </label>
+            <label class="the-options">
+                <label>
+                  <input type="radio" name="accessMod" value="private" checked="checked">
+                  Private 
+                </label>
+            <label>
+                  <input type="radio" name="accessMod" value="public">
+                  Public 
+                </label>
+            </label>
+            <label class="the-options">
+                <label>
+                  <input type="radio" name="resultTarget" value="variables" checked="checked">
+                  Variables 
+                </label>
+            <label>
+                  <input type="radio" name="resultTarget" value="gettersSetters">
+                  Getters & Setters
+                </label>
+            <label>
+                  <input type="radio" name="resultTarget" value="convierteArray">
+                  convierteArray
+                </label>
+            <label>
+                  <input type="radio" name="resultTarget" value="claseCompleta">
+                  Clase completa
+                </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Magia</button>
+        </form>
+      </div>
+      <div class="col-md-12 json-results" id="hiddenResultPanel">
+        <p>Resultados:</p>
+        <div class="well">
+          <div id="phpResults"></div>
         </div>
-        <div class="col-md-12">
-          <form id="fieldList">
-            <div class="form-group">
-              <label for="fields">Ingresa los campos, separados por coma.</label>
-              <textarea rows="5" id="fields" class="form-control">hola, adios, bienvenido</textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Magia</button>
-          </form>
-        </div>
-        <div class="col-md-12 json-results" id="hiddenResultPanel">
-          <p>Resultados:</p>
-          <div class="well" id="phpResults"></div>
-        </div>
-      </div>  
+      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script>
-      $(document).ready(function() {
-        $('#hiddenResultPanel').hide();
-      });
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $('#hiddenResultPanel').hide();
+    });
 
-      $("#fieldList").on('submit', function(event){
-        event.preventDefault();
-        console.log('voy a construir una clase de php con los parametros ingresados.');
-        $.ajax({
-          url: '/php/class',
-          type: 'POST',
-          contentType: 'json',
-          dataType: 'json',
-          data: JSON.stringify($('#fields').val()),
-          success: function(data) {
-            console.log(data);
-            $('#hiddenResultPanel').show();
-            $('#phpResults').html(data);
-          }, 
-          error: function(xhr, status, error) {
-            console.log("Status: " + status + "Error!: " + error);
-					  console.warn("responseText: " + xhr.responseText);
-          } 
-        })
-      });
-    </script>
-  </body>
+    $("#fieldList").on('submit', function (event) {
+      event.preventDefault();
+      $.ajax({
+        url: '/php/class',
+        type: 'POST',
+        dataType: 'json',
+        data: $(this).serialize(),
+        success: function (data) {
+          var lista = '<pre>';
+          $('#hiddenResultPanel').show();
+          var dataObj = data.datos;
+          if (typeof (dataObj[0]) === 'object') {
+            for (var key in dataObj) {
+              // skip loop if the property is from prototype
+              if (dataObj.hasOwnProperty(key)) {
+                var obj = dataObj[key];
+                for (var prop in obj) {
+                  // skip loop if the property is from prototype
+                  if (obj.hasOwnProperty(prop)) {
+                    lista += obj[prop] + '<br>';  
+                  }
+                }
+                lista += '<br>';
+              }
+            }
+          } else {
+            for (var result in dataObj) {
+              if (dataObj.hasOwnProperty(result)) {
+                var element = dataObj[result];
+                lista += element + '<br>';
+              }
+            }
+          }
+          $('#phpResults').html(lista + '</pre>');
+        },
+        error: function (xhr, status, error) {
+          console.log("Status: " + status + "Error!: " + error);
+          console.warn("responseText: " + xhr.responseText);
+        }
+      })
+    });
+  </script>
+</body>
+
 </html>

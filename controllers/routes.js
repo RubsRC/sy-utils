@@ -1,6 +1,6 @@
 'use strict';
 
-var phpFn = require('./phpFn');
+var phpParser = require('./parserForPhp');
 
 module.exports = function (app, passport) {
 
@@ -55,7 +55,7 @@ module.exports = function (app, passport) {
   });
 
   app.post('/php/class', function(req, res) {
-    res.json(phpFn.fieldToPhpClass(req.body));
+    res.json(phpParser.fieldToPhpClass(req.body));
   });
 };
 
