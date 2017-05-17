@@ -1,6 +1,16 @@
 .top-pad {
   padding-top: 80px;
 }
- .json-results {
-   margin-top: 30px;
- }
+.json-results {
+  margin-top: 30px;
+}
+
+.the-options {
+  border: 0.5px dashed #fff; 
+  padding: 5px; 
+  margin: 0px 5px;
+}
+
+.the-options label {
+  margin-right: 10px;
+}
