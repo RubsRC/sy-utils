@@ -1,7 +1,7 @@
 'use strict';
 
 // Regresar una lista de campos como variables de php
-exports.fieldToPhpClass = function (data) {
+exports.pullFunctions = function (data) {
   var resp = {};
   switch (data.resultTarget) {
     case 'variables':

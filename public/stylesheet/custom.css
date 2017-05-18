@@ -14,3 +14,18 @@
 .the-options label {
   margin-right: 10px;
 }
+
+.copytoclipboard {
+    position: relative;
+    right: 45px;
+    top: 10px;
+}
+
+.well-blue {
+  background-color: #1f4a80;
+}
+
+.adorno {
+  max-width: 50px;
+  height: auto;
+}

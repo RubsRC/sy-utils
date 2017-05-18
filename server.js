@@ -8,9 +8,15 @@ var express = require('express'),
   session = require('express-session'),
   cookieParser = require('cookie-parser');
 
-// Declare our express app and port
+// Set up our express app 
 var app = express();
-var port = process.env.PORT || '3000';
+// Config values
+var env = process.env.NODE_ENV || 'development',
+  config = require('./config/config')[env],
+  port = config.server.port,
+  hostname = config.server.host;
+// MySQL connection
+var dbPool = require('./config/connection');
 
 require('./config/passport')(passport); // passport configuration
 
@@ -32,6 +38,22 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // Routes
 require('./controllers/routes')(app, passport);
 
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  res.render('notFound');
+  next();
+});
+
 // launch the app!
-app.listen(port);
-console.log('The magic happened on port ' + port);
+app.listen(port, hostname, function () {
+  dbPool.getConnection(function (err, connection) {
+    if (err) {
+      console.error('Problems connecting to MySQL.');
+      console.error(err);
+      return;
+    }
+    console.log(`Server is runnig at http://${hostname}:${port}`);
+    console.log(`Connected to MySQL as id ${connection.threadId}.`);
+    connection.release();
+  });
+});

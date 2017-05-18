@@ -1,12 +1,12 @@
 'use strict';
 
 var LocalStrategy = require('passport-local').Strategy,
-  mysql = require('mysql'),
   bcrypt = require('bcrypt-nodejs'),
-  dbconfig = require('./database');
+  connection = require('./connection'),
+  env = process.env.NODE_ENV || 'development',
+  config = require('./config')[env];
 
-var connection = mysql.createConnection(dbconfig.connection);
-connection.query('USE ' + dbconfig.database);
+connection.query('USE ' + config.database.dbName);
 
 // expose this function to the app 
 module.exports = function (passport) {

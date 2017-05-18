@@ -1,6 +1,7 @@
 'use strict';
 
-var phpParser = require('./parserForPhp');
+var phpFunctions = require('./phpFunctions'),
+  javaFunctions = require('./javaFunctions');
 
 module.exports = function (app, passport) {
 
@@ -54,9 +55,22 @@ module.exports = function (app, passport) {
     res.redirect('/');
   });
 
-  app.post('/php/class', function(req, res) {
-    res.json(phpParser.fieldToPhpClass(req.body));
+  app.get('/php', isLoggedIn, function(req, res) {
+    res.render('phpFunctions', { user: req.user });
   });
+
+  app.post('/php/magic', function(req, res) {
+    res.json(phpFunctions.pullFunctions(req.body));
+  });
+
+  app.get('java', isLoggedIn, function(req, res) {
+    res.render('javaFunctions', { user: req.user });
+  });
+
+  app.post('/java/magic', function(req, res) {
+    res.json(javaFunctions.pullFunctions(req.body));
+  });
+
 };
 
 // route middleware to make sure

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/stylesheet/custom.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-primary">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5"
+          aria-expanded="false"> 
+          <span class="sr-only">Toggle navigation</span> 
+          <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+        </button>
+        <a href="/dashboard" class="navbar-brand">SyKELETON</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+        <p class="navbar-text navbar-right">
+          Hola,
+          <a href="#" class="navbar-link">
+            <%= user.username %>
+          </a>
+          | <a href="/logout">Salir</a>
+        </p>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="/dashboard">Inicio</a></li>
+      <li class="active">PHP</li>
+    </ol>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Vamos a generar código para una clase PHP</h3>
+        <form id="fieldList">
+          <div class="form-group">
+            <label for="fields">Ingresa los campos, separados por coma.</label>
+            <textarea rows="5" id="myFields" name="myFields" class="form-control">hola, adios, bienvenido, hoy_toca, let_go_now</textarea>
+          </div>
+          <div class="form-group">
+            <p>Opciones:</p>
+            <label class="the-options">
+                <input type="checkbox" name="camelCase" value="camelCase" checked="checked">
+                camelCase
+              </label>
+            <label class="the-options">
+                <label>
+                  <input type="radio" name="accessMod" value="private" checked="checked">
+                  Private 
+                </label>
+            <label>
+                  <input type="radio" name="accessMod" value="public">
+                  Public 
+                </label>
+            </label>
+            <label class="the-options">
+                <label>
+                  <input type="radio" name="resultTarget" value="variables" checked="checked">
+                  Variables 
+                </label>
+            <label>
+                  <input type="radio" name="resultTarget" value="gettersSetters">
+                  Getters & Setters
+                </label>
+            <label>
+                  <input type="radio" name="resultTarget" value="convierteArray">
+                  convierteArray
+                </label>
+            <label>
+                  <input type="radio" name="resultTarget" value="claseCompleta">
+                  Clase completa
+                </label>
+          </div>
+          <button type="submit" class="btn btn-primary" id="attackName"></button>
+        </form>
+      </div>
+      <div class="col-md-12 json-results" id="hiddenResultPanel">
+        <p>Resultados:</p>
+        <button type="button" class="btn btn-primary btn-sm copytoclipboard pull-right" data-clipboard-target="#phpResults">
+          <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+        </button>
+        <div id="phpResults"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+  <script>
+    var clipboard = new Clipboard('.copytoclipboard');
+    clipboard.on('success', function (e) {
+      console.log(e);
+      e.clearSelection();
+      setTooltip('Copiado!');
+      hideTooltip();
+    });
+    clipboard.on('error', function (e) {
+      console.log(e);
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('#hiddenResultPanel').hide();
+
+      // instanciamos la funcion del tooltip para el boton de copiar al portapapeles
+      $(function () {
+        $('.copytoclipboard').tooltip({
+          trigger: 'click',
+          placement: 'left'
+        })
+      });
+
+      // cambiamos el nombre del boton de resultados dinamicamente
+      var mejoresAtaques = { "0": "Splash", "1": "Lanzallamas", "2": "Hidrobomba", "3": "Rayo Hielo", "4": "Surf", "5": "Bola voltio", "6": "Puño Hielo", "7": "Hoja Afilada", "8": "Megapatada", "9": "Impactrueno", "10": "Puño certero", "11": "Puño Fuego", "12": "Puño trueno", "13": "Golpe aéreo", "14": "Bola hielo", "15": "Hidropulso", "16": "Garra Metal", "17": "Psicorrayo", "18": "Puño Bala", "19": "Látigo cepa", "20": "Huesomerang", "21": "Doble rayo", "22": "Canto", "23": "Garra brutal", "24": "Pistola de Agua", "25": "Puño Cometa", "26": "Triple patada", "27": "Cabezazo", "28": "Ataque Rapido", "29": "Rayo Burbuja", "30": "Paralizador", "31": "Bote", "32": "Doble patada", "33": "Puño Mareo", "34": "Golpe Karate", "35": "Ascuas", "36": "Mordisco", "37": "Golpe cabeza", "38": "Golpe", "39": "Hueso Palo", "40": "Corte", "41": "Picotazo", "42": "Burbuja", "43": "Placaje", "44": "Destructor", "45": "Disparo demora", "46": "Fortaleza", "47": "Golpes furia", "48": "Doble Golpe", "49": "Empujón" };
+      var randomnumber = Math.floor(Math.random() * (50 - 0 + 1)) + 0;
+      $('#attackName').html(mejoresAtaques[randomnumber]);
+    });
+
+    function setTooltip(message) {
+      $('.copytoclipboard').tooltip('hide')
+        .attr('data-original-title', message)
+        .tooltip('show');
+    }
+
+    function hideTooltip() {
+      setTimeout(function () {
+        $('.copytoclipboard').tooltip('hide');
+      }, 3000);
+    }
+
+    $("#fieldList").on('submit', function (event) {
+      event.preventDefault();
+      $.ajax({
+        url: '/php/magic',
+        type: 'POST',
+        dataType: 'json',
+        data: $(this).serialize(),
+        success: function (data) {
+          var lista = '<pre>';
+          $('#hiddenResultPanel').show();
+          var dataObj = data.datos;
+          if (typeof (dataObj[0]) === 'object') {
+            for (var key in dataObj) {
+              // skip loop if the property is from prototype
+              if (dataObj.hasOwnProperty(key)) {
+                var obj = dataObj[key];
+                for (var prop in obj) {
+                  // skip loop if the property is from prototype
+                  if (obj.hasOwnProperty(prop)) {
+                    lista += obj[prop] + '<br>';
+                  }
+                }
+                lista += '<br>';
+              }
+            }
+          } else {
+            for (var result in dataObj) {
+              if (dataObj.hasOwnProperty(result)) {
+                var element = dataObj[result];
+                lista += element + '<br>';
+              }
+            }
+          }
+          $('#phpResults').html(lista + '</pre>');
+        },
+        error: function (xhr, status, error) {
+          console.log("Status: " + status + "Error!: " + error);
+          console.warn("responseText: " + xhr.responseText);
+        }
+      })
+    });
+  </script>
+</body>
+
+</html>
