@@ -5,7 +5,7 @@ var express = require('express'),
   morgan = require('morgan'),
   passport = require('passport'),
   flash = require('connect-flash'),
-  session = require('express-session'),
+  session = require('cookie-session'),
   cookieParser = require('cookie-parser');
 
 // Set up our express app 
