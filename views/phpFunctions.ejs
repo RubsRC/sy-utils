@@ -41,8 +41,8 @@
         <h3>Vamos a generar código para una clase PHP</h3>
         <form id="fieldList">
           <div class="form-group">
-            <label for="fields">Ingresa los campos, separados por coma.</label>
-            <textarea rows="5" id="myFields" name="myFields" class="form-control">id_cat_zona, id_cat_empresa, id_tabla, cod_tabla</textarea>
+            <p>Ingresa los campos, separados por coma. ¿Necesitas ayuda? Consiguela <a href="getting-started">aquí</a>.</p>
+            <textarea rows="5" id="myFields" name="myFields" class="form-control" placeholder="id_cat_zona, id_cat_empresa, id_tabla, cod_tabla"></textarea>
           </div>
           <div class="form-group">
             <p>Opciones:</p>
@@ -90,6 +90,12 @@
       </div>
     </div>
   </div>
+  <footer id="footer" class="text-center">
+    <hr>
+    2017 © Patrocinado por <a href="http://www.ontechnology.com.mx">On Technology</a>.  Hecho con <3 y curiosidad. 
+    <br>Fork me on <a href="https://github.com/RubsRC/sy-utils">GitHub</a>
+    <br><br>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -119,9 +125,22 @@
       });
 
       // cambiamos el nombre del boton de resultados dinamicamente
-      var mejoresAtaques = { "0": "Splash", "1": "Lanzallamas", "2": "Hidrobomba", "3": "Rayo Hielo", "4": "Surf", "5": "Bola voltio", "6": "Puño Hielo", "7": "Hoja Afilada", "8": "Megapatada", "9": "Impactrueno", "10": "Puño certero", "11": "Puño Fuego", "12": "Puño trueno", "13": "Golpe aéreo", "14": "Bola hielo", "15": "Hidropulso", "16": "Garra Metal", "17": "Psicorrayo", "18": "Puño Bala", "19": "Látigo cepa", "20": "Huesomerang", "21": "Doble rayo", "22": "Canto", "23": "Garra brutal", "24": "Pistola de Agua", "25": "Puño Cometa", "26": "Triple patada", "27": "Cabezazo", "28": "Ataque Rapido", "29": "Rayo Burbuja", "30": "Paralizador", "31": "Bote", "32": "Doble patada", "33": "Puño Mareo", "34": "Golpe Karate", "35": "Ascuas", "36": "Mordisco", "37": "Golpe cabeza", "38": "Golpe", "39": "Hueso Palo", "40": "Corte", "41": "Picotazo", "42": "Burbuja", "43": "Placaje", "44": "Destructor", "45": "Disparo demora", "46": "Fortaleza", "47": "Golpes furia", "48": "Doble Golpe", "49": "Empujón" };
-      var randomnumber = Math.floor(Math.random() * (50 - 0 + 1)) + 0;
-      $('#attackName').html(mejoresAtaques[randomnumber]);
+      function ataque() {
+        var mejoresAtaques = { "0": "Splash", "1": "Lanzallamas", "2": "Hidrobomba", "3": "Rayo Hielo", "4": "Surf", "5": "Bola voltio", "6": "Puño Hielo", "7": "Hoja Afilada", "8": "Megapatada", "9": "Impactrueno", "10": "Puño certero", "11": "Puño Fuego", "12": "Puño trueno", "13": "Golpe aéreo", "14": "Bola hielo", "15": "Hidropulso", "16": "Garra Metal", "17": "Psicorrayo", "18": "Puño Bala", "19": "Látigo cepa", "20": "Huesomerang", "21": "Doble rayo", "22": "Canto", "23": "Garra brutal", "24": "Pistola de Agua", "25": "Puño Cometa", "26": "Triple patada", "27": "Cabezazo", "28": "Ataque Rapido", "29": "Rayo Burbuja", "30": "Paralizador", "31": "Bote", "32": "Doble patada", "33": "Puño Mareo", "34": "Golpe Karate", "35": "Ascuas", "36": "Mordisco", "37": "Golpe cabeza", "38": "Golpe", "39": "Hueso Palo", "40": "Corte", "41": "Picotazo", "42": "Burbuja", "43": "Placaje", "44": "Destructor", "45": "Disparo demora", "46": "Fortaleza", "47": "Golpes furia", "48": "Doble Golpe", "49": "Empujón" };
+        var randomnumber = Math.floor(Math.random() * (50 - 0 + 1)) + 0;
+        $('#attackName').html(mejoresAtaques[randomnumber]+'!');
+      }
+      ataque();
+      $('#attackName').click(function() {
+        ataque();
+      });
+    
+      var docHeight = $(window).height();
+      var footerHeight = $('#footer').height();
+      var footerTop = $('#footer').position().top + footerHeight;
+      if (footerTop < docHeight) {
+        $('#footer').css('margin-top', 10 + (docHeight - footerTop) + 'px');
+      }
     });
 
     function setTooltip(message) {

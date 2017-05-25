@@ -1,30 +1,40 @@
+/*body { 
+  padding-bottom: 100px; 
+}*/
+p {
+  margin: 10.5px 0px;
+}
+/*footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}*/
 .top-pad {
   padding-top: 80px;
 }
 .json-results {
   margin-top: 30px;
 }
-
 .the-options {
   border: 0.5px dashed #fff; 
   padding: 5px; 
   margin: 0px 5px;
 }
-
 .the-options label {
   margin-right: 10px;
 }
-
 .copytoclipboard {
     position: relative;
     right: 45px;
     top: 10px;
 }
-
 .well-blue {
   background-color: #1f4a80;
 }
-
+.well-grey {
+  background-color: #4e4e4e;
+}
 .adorno {
   max-width: 50px;
   height: auto;

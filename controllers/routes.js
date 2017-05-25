@@ -49,6 +49,10 @@ module.exports = function (app, passport) {
     res.render('dashboard', { user: req.user });
   });
 
+  app.get('/getting-started', isLoggedIn, function(req, res) {
+    res.render('gettingStarted', { user: req.user });
+  });
+
   /* Handle Logout */
   app.get('/logout', function (req, res) {
     req.logout();
@@ -63,7 +67,7 @@ module.exports = function (app, passport) {
     res.json(phpFunctions.pullFunctions(req.body));
   });
 
-  app.get('java', isLoggedIn, function(req, res) {
+  app.get('/java', isLoggedIn, function(req, res) {
     res.render('javaFunctions', { user: req.user });
   });
 

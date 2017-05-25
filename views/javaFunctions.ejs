@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/stylesheet/custom.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-primary">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5"
+          aria-expanded="false"> 
+          <span class="sr-only">Toggle navigation</span> 
+          <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+        </button>
+        <a href="/dashboard" class="navbar-brand">SyKELETON</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+        <p class="navbar-text navbar-right">
+          Hola,
+          <a href="#" class="navbar-link">
+            <%= user.username %>
+          </a>
+          | <a href="/logout">Salir</a>
+        </p>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="/dashboard">Inicio</a></li>
+      <li class="active">Java</li>
+    </ol>
+    <div class="row">
+      <div class="col-md-12 json-results text-center">
+        <h2>Está sección está en construcción..</h2>
+        <img src="https://cloud.google.com/images/products/functions/open-familiar.png" class="img-responsive center-block">
+        <p>Lamentamos las molestias</p>
+        <br>
+        <a href="/dashboard" class="btn btn-primary"> <span class="glyphicon glyphicon-home"></span> Regresar</a>
+      </div>
+    </div>
+  </div>
+  <footer class="text-center">
+    <hr>
+    2017 © Patrocinado por <a href="http://www.ontechnology.com.mx">On Technology</a>.  Hecho con <3 y curiosidad. 
+    <br>Fork me on <a href="https://github.com/RubsRC/sy-utils">GitHub</a>
+    <br><br>
+  </footer>
+  <script>
+    
+  </script>
+</body>
+
+</html>

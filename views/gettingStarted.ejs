@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Consejos de inicio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/stylesheet/custom.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-primary">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5"
+          aria-expanded="false"> 
+          <span class="sr-only">Toggle navigation</span> 
+          <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+        </button>
+        <a href="/dashboard" class="navbar-brand">SyKELETON</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+        <p class="navbar-text navbar-right">
+          Hola,
+          <a href="#" class="navbar-link">
+            <%= user.username %>
+          </a>
+          | <a href="/logout">Salir</a>
+        </p>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="/dashboard">Inicio</a></li>
+      <li class="active">Consejos iniciales</li>
+    </ol>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="well">
+          <h3>Getting started!</h3>
+          <p>
+            Aquí tenemos algunas sugerencias de como obtener facilmente los campos de tu tabla de base de datos.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <h3>Siempre es bueno saber tomar atajos!</h3>
+        <p>Las funciones ofrecidas en esta herramienta necesitan una lista de campos de la base de datos. <br> Podemos obtener
+          los campos necesacios mediante una query en la base de datos.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="well well-grey">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjRUEyRDJFIiBkPSJNNDcuNjE3IDk4LjEyYy0xOS4xOTIgNS4zNjIgMTEuNjc3IDE2LjQzOSAzNi4xMTUgNS45NjktNC4wMDMtMS41NTYtNi44NzQtMy4zNTEtNi44NzQtMy4zNTEtMTAuODk3IDIuMDYtMTUuOTUyIDIuMjIyLTI1Ljg0NCAxLjA5Mi04LjE2NC0uOTM1LTMuMzk3LTMuNzEtMy4zOTctMy43MXpNODAuODA2IDg3LjY2Yy0xNC40NDQgMi43NzktMjIuNzg3IDIuNjktMzMuMzU0IDEuNi04LjE3MS0uODQ1LTIuODIyLTQuODA1LTIuODIyLTQuODA1LTIxLjEzNyA3LjAxNiAxMS43NjcgMTQuOTc3IDQxLjMwOSA2LjMzNi0zLjE0LTEuMTA2LTUuMTMzLTMuMTMxLTUuMTMzLTMuMTMxek05Mi4xMjUgMjcuMDg1Yy4wMDEgMC00Mi43MzEgMTAuNjY5LTIyLjMyMyAzNC4xODcgNi4wMjQgNi45MzUtMS41OCAxMy4xNy0xLjU4IDEzLjE3czE1LjI4OS03Ljg5MSA4LjI2OS0xNy43NzdjLTYuNTU5LTkuMjE1LTExLjU4Ny0xMy43OTMgMTUuNjM0LTI5LjU4ek0xMDIuMTIzIDEwOC4yMjlzMy41MjkgMi45MS0zLjg4OCA1LjE1OWMtMTQuMTAyIDQuMjcyLTU4LjcwNiA1LjU2LTcxLjA5NS4xNzEtNC40NS0xLjkzOCAzLjg5OS00LjYyNSA2LjUyNi01LjE5MiAyLjczOS0uNTkzIDQuMzAzLS40ODUgNC4zMDMtLjQ4NS00Ljk1Mi0zLjQ4Ny0zMi4wMTMgNi44NS0xMy43NDIgOS44MTUgNDkuODIxIDguMDc2IDkwLjgxNy0zLjYzNyA3Ny44OTYtOS40Njh6TTg1IDc3Ljg5NmMyLjM5NS0xLjYzNCA1LjcwMy0zLjA1MyA1LjcwMy0zLjA1M3MtOS40MjQgMS42ODUtMTguODEzIDIuNDc0Yy0xMS40OTQuOTY0LTIzLjgyMyAxLjE1NC0zMC4wMTIuMzI2LTE0LjY1Mi0xLjk1OSA4LjAzMy03LjM0OCA4LjAzMy03LjM0OHMtOC44MTItLjU5Ni0xOS42NDQgNC42NDRjLTEyLjgxMiA2LjE5NSAzMS42OTEgOS4wMTkgNTQuNzMzIDIuOTU3ek05MC42MDkgOTMuMDQxYy0uMTA4LjI5LS40NjguNjE2LS40NjguNjE2IDMxLjI3My04LjIyMSAxOS43NzUtMjguOTc5IDQuODIyLTIzLjcyNS0xLjMxMi40NjQtMiAxLjU0My0yIDEuNTQzcy44MjktLjMzNCAyLjY3OC0uNzJjNy41NTktMS41NzUgMTguMzg5IDEwLjExOS01LjAzMiAyMi4yODZ6TTY0LjE4MSA3MC4wNjljLTQuNjE0LTEwLjQyOS0yMC4yNi0xOS41NTMuMDA3LTM1LjU1OSAyNS4yNzEtMTkuOTQ3IDEyLjMwNC0zMi45MjMgMTIuMzA0LTMyLjkyMyA1LjIzIDIwLjYwOC0xOC40NTEgMjYuODMzLTI2Ljk5OSAzOS42NjctNS44MjEgOC43NDUgMi44NTcgMTguMTQyIDE0LjY4OCAyOC44MTV6TTkxLjQ1NSAxMjEuODE3Yy0xOS4xODcgMy42MTItNDIuODU0IDMuMTkxLTU2Ljg4Ny44NzQgMCAwIDIuODc0IDIuMzggMTcuNjQ2IDMuMzMxIDIyLjQ3NiAxLjQzNyA1Ny0uOCA1Ny44MTYtMTEuNDM2LjAwMSAwLTEuNTcgNC4wMzItMTguNTc1IDcuMjMxeiIvPjwvc3ZnPg=="
+            class="img-responsive adorno pull-right">
+          <h3>Java</h3>
+          <p>Para obtener las columnas necesarias para una clase de Java, podemos utilizar el siguiente query:</p>
+          <pre>
+            SELECT COLUMN_NAME, DATA_TYPE 
+            FROM information_schema.COLUMNS 
+            WHERE TABLE_SCHEMA = 'sy_utils' 
+            AND TABLE_NAME = 'cat_usuarios';
+          </pre>
+          <a href="#javaGuide" onclick="showGuide('javaGuide')">Ver las instrucciones completas</a>
+          <div id="javaGuide" style="display: none;">
+            <p>Obtenemos las columas de la siguiente manera:</p>
+            <img src="../assets/images/result_set.png" class="img-responsive center-block">
+            <p>Podemos copiar los resultados facilmente con la opción <i>Copy all rows to clipboard</i>:</p>
+            <img src="../assets/images/copy_results.png" class="img-responsive center-block">
+            <p>Necesitamos especificar los carácteres de escape de la siguiente forma:</p>
+            <img src="../assets/images/escape_results.png" class="img-responsive center-block">
+            <p>Colocamos una coma como al final de cada linea:</p>
+            <img src="../assets/images/escape_results_a.png" class="img-responsive center-block">
+            <p>Colocamos un pipe como al final de cada campo y deseleccionamos la opción de encerrar los campos:</p>
+            <img src="../assets/images/escape_results_b.png" class="img-responsive center-block">
+            <p>Listo! Tenemos nuestros campos!
+              <p>
+                <a href="/java" class="btn btn-primary center-block">Generador de código Java  <span class="glyphicon glyphicon-arrow-right"> </span></a>
+                <br><a style="cursor: pointer" onclick="hideGuide('javaGuide')">Ocultar instrucciones</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="well well-grey">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjNjE4MUI2IiBkPSJNNjQgMzMuMDM5Yy0zMy43NCAwLTYxLjA5NCAxMy44NjItNjEuMDk0IDMwLjk2MXMyNy4zNTQgMzAuOTYxIDYxLjA5NCAzMC45NjEgNjEuMDk0LTEzLjg2MiA2MS4wOTQtMzAuOTYxLTI3LjM1NC0zMC45NjEtNjEuMDk0LTMwLjk2MXptLTE1Ljg5NyAzNi45OTNjLTEuNDU4IDEuMzY0LTMuMDc3IDEuOTI3LTQuODYgMi41MDctMS43ODMuNTgxLTQuMDUyLjQ2MS02LjgxMS40NjFoLTYuMjUzbC0xLjczMyAxMGgtNy4zMDFsNi41MTUtMzRoMTQuMDRjNC4yMjQgMCA3LjMwNSAxLjIxNSA5LjI0MiAzLjQzMiAxLjkzNyAyLjIxNyAyLjUxOSA1LjM2NCAxLjc0NyA5LjMzNy0uMzE5IDEuNjM3LS44NTYgMy4xNTktMS42MTQgNC41MTUtLjc1OSAxLjM1Ny0xLjc1IDIuNjI0LTIuOTcyIDMuNzQ4em0yMS4zMTEgMi45NjhsMi44ODEtMTQuNDJjLjMyOC0xLjY4OC4yMDgtMi45NDItLjM2MS0zLjU1NS0uNTctLjYxNC0xLjc4Mi0xLjAyNS0zLjYzNS0xLjAyNWgtNS43OWwtMy43MzEgMTloLTcuMjQ0bDYuNTE1LTMzaDcuMjQ0bC0xLjczMiA5aDYuNDUzYzQuMDYxIDAgNi44NjEuODE1IDguNDAyIDIuMjMxczIuMDAzIDMuMzU2IDEuMzg3IDYuNTI4bC0zLjAzMSAxNS4yNDFoLTcuMzU4em00MC4yNTktMTEuMTc4Yy0uMzE4IDEuNjM3LS44NTYgMy4xMzMtMS42MTMgNC40ODgtLjc1OCAxLjM1Ny0xLjc0OCAyLjU5OC0yLjk3MSAzLjcyMi0xLjQ1OCAxLjM2NC0zLjA3OCAxLjkyNy00Ljg2IDIuNTA3LTEuNzgyLjU4MS00LjA1My40NjEtNi44MTIuNDYxaC02LjI1M2wtMS43MzIgMTBoLTcuMzAxbDYuNTE0LTM0aDE0LjA0MWM0LjIyNCAwIDcuMzA1IDEuMjE1IDkuMjQxIDMuNDMyIDEuOTM1IDIuMjE3IDIuNTE4IDUuNDE4IDEuNzQ2IDkuMzl6TTk1LjkxOSA1NGgtNS4wMDFsLTIuNzI3IDE0aDQuNDQyYzIuOTQyIDAgNS4xMzYtLjI5IDYuNTc2LTEuNCAxLjQ0Mi0xLjEwOCAyLjQxMy0yLjgyOCAyLjkxOC01LjQyMS40ODQtMi40OTEuMjY0LTQuNDM0LS42Ni01LjQ1OC0uOTI1LTEuMDI0LTIuNzc0LTEuNzIxLTUuNTQ4LTEuNzIxek0zOC45MzQgNTRoLTUuMDAybC0yLjcyNyAxNGg0LjQ0MWMyLjk0MyAwIDUuMTM2LS4yOSA2LjU3Ny0xLjQgMS40NDEtMS4xMDggMi40MTMtMi44MjggMi45MTctNS40MjEuNDg0LTIuNDkxLjI2NC00LjQzNC0uNjYtNS40NThzLTIuNzcyLTEuNzIxLTUuNTQ2LTEuNzIxeiIvPjwvc3ZnPg=="
+            class="img-responsive adorno pull-right">
+          <h3>PHP</h3>
+          <p>Para obtener las columnas necesarias para una clase de PHP, podemos utilizar el siguiente query:</p>
+          <pre>
+            SELECT COLUMN_NAME
+            FROM information_schema.COLUMNS 
+            WHERE TABLE_SCHEMA = 'sy_utils' 
+            AND TABLE_NAME = 'cat_usuarios';
+          </pre>
+          <a href="#phpGuide" onclick="showGuide('phpGuide')">Ver las instrucciones completas</a>
+          <div id="phpGuide" style="display: none;">
+            <p>Obtenemos las columas de la siguiente manera:</p>
+            <img src="../assets/images/result_set_.png" class="img-responsive center-block">
+            <p>Podemos copiar los resultados facilmente con la opción <i>Copy all rows to clipboard</i>:</p>
+            <img src="../assets/images/copy_results_.png" class="img-responsive center-block">
+            <p>Necesitamos especificar los carácteres de escape de la siguiente forma:</p>
+            <img src="../assets/images/escape_results_.png" class="img-responsive center-block">
+            <p>Colocamos una coma como al final de cada linea:</p>
+            <img src="../assets/images/escape_results_a.png" class="img-responsive center-block">
+            <p>Listo! Tenemos nuestros campos!</p>
+            <a href="/php" class="btn btn-primary center-block">Generador de código PHP  <span class="glyphicon glyphicon-arrow-right"> </span></a>
+            <br><a style="cursor: pointer" onclick="hideGuide('phpGuide')">Ocultar instrucciones</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="footer" class="text-center">
+    <hr> 2017 © Patrocinado por <a href="http://www.ontechnology.com.mx">On Technology</a>. Hecho con
+    <3 y curiosidad. <br>Fork me on <a href="https://github.com/RubsRC/sy-utils">GitHub</a>
+      <br><br>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script>
+    function showGuide(element) {
+      $('#' + element).show();
+    }
+    function hideGuide(element) {
+      $('#' + element).hide();
+    }
+    $(document).ready(function () {
+      var docHeight = $(window).height();
+      var footerHeight = $('#footer').height();
+      var footerTop = $('#footer').position().top + footerHeight;
+      if (footerTop < docHeight) {
+        $('#footer').css('margin-top', 10 + (docHeight - footerTop) + 'px');
+      }
+    });
+  </script>
+</body>
+
+</html>
